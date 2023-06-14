@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable = no">
+	<link rel="stylesheet" href="style.css">
+	<title>Love You Very Much</title>
+</head>
+<body>
+	<div class="moon"></div>	
+	<div class="hum-dono"></div>
+	<div class="grass"></div>
+
+	<div class="msg">
+		<div class="msg-box">
+			<p>Distance is not an obstacle; it's a reminder of how strong our love can be. 💞 💞</p>
+			<div class="ok-btn">❤️</div>
+		</div>
+	</div>
+</body>
+
+<script>
+let moon = document.querySelector(".moon");
+let btn = document.querySelector(".ok-btn");
+let msgDiv = document.querySelector(".msg");
+let song = new Audio("tereVaste.mp3");
+
+btn.addEventListener("click", event =>{
+	song.play();
+	msgDiv.style.display = "none";
+})
+
+function generateStars(numStars) {
+  var stars = [];
+  for (var i = 0; i < numStars; i++) {
+    var star = document.createElement("div");
+    star.className = "star";
+    star.style.left = Math.random() * 100 + "%";
+    star.style.top = Math.random() * 100 + "%";
+    star.style.animationDelay = Math.random() + "s";
+    stars.push(star);
+  }
+  return stars;
+}
+
+function appendStars(stars) {
+  var sky = document.querySelector("body");
+  for (var i = 0; i < stars.length; i++) {
+    sky.appendChild(stars[i]);
+  }
+}
+
+var numStars = 200;
+var stars = generateStars(numStars);
+appendStars(stars);
+
+</script>
+
+</html>
